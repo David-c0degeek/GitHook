@@ -1,0 +1,6 @@
+#!/bin/sh
+# Resolve the directory this hook lives in so the PowerShell script is
+# always loaded from the same folder (works with any core.hooksPath).
+DIR=$(cd "$(dirname "$0")" && pwd)
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$DIR/pre-commit.ps1"
+exit $?
